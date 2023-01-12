@@ -14,13 +14,15 @@
     <div class="container">
         <nav>
             <img src="images/logo.png" class="logo">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <!--<li><a href="#portfolio">Portfolio</a></li>-->
+                <li><a href="#contact">Contact</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
             </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
             <p>Software Developer/DJ</p>
@@ -33,18 +35,17 @@
     <div class="container">
         <div class="row">
             <div class="about-col-1">
-                <img src="images/user.png">
+                <img src="images/kevin.jpg">
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                    pariatur.Excepteur sint occaecatcupidatat non proident, sunt in culpa 
-                    qui officia deserunt mollit anim id est laborum.
+                    I am a Software Developer with knowledge of Python, C# and JavaScript. I am a problem solver at heart
+                    and am passionate about software development. You can find me DJing a wedding in Chicago during my spare time.
+                    Music is a big part of my life and also a passion. Having a career as an operations manager in the tech, 
+                    medical, and hospitality industries - my time was spent solving problems for customers and ensuring I went
+                    the extra mile. My previous background allows me to take a customer-centric approach when creating software
+                    and solving business problems. 
                 </p>
 
                 <div class="tab-titles">
@@ -70,7 +71,7 @@
                 <div class="tab-contents" id="education">
                     <ul>
                         <li><span>2021</span><br>Coding Dojo</li>
-                        <li><span>2018 </span><br>Lean Six Sigma Green Belt</li>
+                        <li><span>2016 </span><br>Lean Six Sigma Green Belt</li>
                         <li><span>2007 - 2011</span><br>DePaul University - Politcal Science</li>
                     </ul>
                 </div>
@@ -86,29 +87,27 @@
             <div>
                 <i class="fa-solid fa-code"></i>
                 <h2>Web Design</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#">Learn more</a>
+                <p>Full CRUD command applications and responsive websites.</p>
+                <a href="https://github.com/KevinLuch">Learn more</a>
             </div>
             <div>
-                <i class="fa-solid fa-crop-simple"></i>
-                <h2>UI/UX Design</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#">Learn more</a>
+                <i class="fa-solid fa-user-ninja"></i>
+                <h2>Customer Service Ninja</h2>
+                <p>Customer service and hospitality is my foundation.
+                </p>
+                <a href="https://www.linkedin.com/in/kevinlluch">Learn more</a>
             </div>
             <div>
-                <i class="fa-brands fa-app-store"></i>
-                <h2>App Design</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#">Learn more</a>
+                <i class="fa-solid fa-music"></i>
+                <h2>DJ</h2>
+                <p>Open-format DJ for your next wedding or corporate event.</p>
+                <a href="https://vimeo.com/737579155">Learn more</a>
             </div>
         </div>
     </div>
 </div>
 <!--------------------portfolio------------------->
-<div id="portfolio">
+<!-- <div id="portfolio">
     <div class="container">
         <h1 class="sub-title">My Work</h1>
         <div class="work-list">
@@ -118,7 +117,7 @@
                     <h3>Social Media App</h3>
                     <p>The app connects you to the talented people around the world
                     Download it from play store.</p>
-                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="https://www.loom.com/share/d386447f32a54eabb571b9de24fdc500"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
             <div class="work">
@@ -142,7 +141,7 @@
         </div>
         <a href="#" class="btn">See more</a>
     </div>
-</div>
+</div> --->
 <!-------------------contact----------------->
 <div id="contact">
     <div class="container">
@@ -159,14 +158,18 @@
                 <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
-                <form>
+                <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="email" name="Email" placeholder="Your Email" required>
                     <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"> </span>
             </div>
         </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © Kevin. Made with <i class="fa-solid fa-heart"></i> by Kevin Luch.</p>
     </div>
 </div>
 
@@ -185,6 +188,35 @@
         document.getElementById(tabname).classList.add("active-tab");
     }
 </script>
-    
+
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px"; 
+    }
+
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxjXPRjEVkMXaJvSsrm7ndgow-t5FToKm2hS84mU3Aw8i56Q9DCRDhpEr4RJBVk5UnH/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>    
 </body>
 </html>

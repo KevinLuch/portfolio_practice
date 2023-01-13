@@ -57,9 +57,10 @@ nav ul li a:hover::after{
 .header-text{
     margin-top: 20%;
     font-size: 30px;
+    
 }
 .header-text h1{
-    font-size: 60px;
+    font-size: 80px;
     margin-top: 20px;
 }
 .header-text h1 span{
@@ -245,9 +246,11 @@ nav ul li a:hover::after{
 /*-----------------contact---------------*/
 .contact-left{
     flex-basis:35%;
+    margin-top:10%;
 }
 .contact-right{
     flex-basis:60%;
+    margin-top: 10%;
 }
 .contact-left p{
     margin-top: 30px;
@@ -313,7 +316,7 @@ nav .fa-solid{
 }
 @media only screen and (max-width: 600px){
     #header{
-        background-image: url(images/phone-background.png);
+        /*background-image: url(images/phone-background.png);*/
     }
     .header-text{
         margin-top: 100%;
